@@ -9,6 +9,10 @@
     margin-top: 25%;
 }
 #container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 #boxedQuery{
@@ -32,13 +36,19 @@
 #queriesManager{
     position:absolute;
     top:61%;
-    left:20%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
     text-align:center;
 }
 #queriesClient{
     position:absolute;
     top:61%;
-    left:40%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
     text-align:center;
 }
 button{
