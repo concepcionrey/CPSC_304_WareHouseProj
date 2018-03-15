@@ -13,13 +13,15 @@
 
 
 <div id = "queriesManager">
-    Item ID:<input type="text" name="IIDInsert"> 
-    Item Category:<input type="text" name="itemCategoryInsert"> 
-    Item name:<input type="text" name="nameInsert">
-    Item Price:<input type="text" name="priceInsert">
-    Item Supply code:<input type="text" name="supplyCodeInsert">
-    Item Stock:<input type="text" name="stockInsert">
-    <button type="add item" id="addItemButton">Add Item to Items table</button> <br>
+    <form action="queries.php" method="get">
+        Item ID:<input type="text" name="IIDInsert"> 
+        Item Category:<input type="text" name="itemCategoryInsert"> 
+        Item name:<input type="text" name="nameInsert">
+        Item Price:<input type="text" name="priceInsert">
+        Item Supply code:<input type="text" name="supplyCodeInsert">
+        Item Stock:<input type="text" name="stockInsert">
+        <button type="add item" id="addItemButton">Add Item to Items table</button> <br>
+    </form>
     
     Item ID: <input type="text" name="IIDUpdateStock"> 
     Update stock by: <input type="text" name="stockUpdate">
