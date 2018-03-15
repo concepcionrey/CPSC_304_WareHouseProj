@@ -1,0 +1,51 @@
+#button1{
+    width: 300px;
+    height: 40px;
+    margin-top: 25%;
+}
+#button2{
+    width: 300px;
+    height: 40px;
+    margin-top: 25%;
+}
+#container{
+    text-align: center;
+}
+#boxedQuery{
+    position:absolute;
+    top:1%;
+    left:2.5%;
+    height:8%;
+    width:95%;
+    border: 1px solid black;
+    text-align:center;
+}
+#boxed {
+    position:absolute;
+    top:10%;
+    left:2.5%;
+    height:50%;
+    width:95%;
+    border: 1px solid black;
+    text-align:center;
+}
+#queriesManager{
+    position:absolute;
+    top:61%;
+    left:20%;
+    text-align:center;
+}
+#queriesClient{
+    position:absolute;
+    top:61%;
+    left:40%;
+    text-align:center;
+}
+button{
+    height:30px;
+    font-size: 12px;
+}
+br {
+  margin:1.5em 0;/* FF for instance */
+  line-height:3em;/* chrome for instance */
+}
