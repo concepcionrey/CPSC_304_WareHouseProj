@@ -1,0 +1,107 @@
+//Note: Whenever you see the string: "THE USER INPUT", it means that it is the user input in
+a given field box in UI.
+
+MANAGER QUERIES:
+
+1) Add an item (comletely new item with new id):
+
+INSERT INTO Item
+(IID, itemCategory, name, price, supplierCode, itemStock)
+VALUES
+("THE USER INPUT", "THE USER INPUT", "THE USER INPUT", "THE USER INPUT", "THE USER INPUT", "THE USER INPUT");
+
+2) Update stock of an item:
+
+UPDATE Item
+SET itemStock = "THE USER INPUT"
+WHERE IID = "THE USER INPUT";
+
+3) Update Price:
+
+UPDATE Item
+SET itemStock = "THE USER INPUT"
+WHERE IID = "THE USER INPUT";
+
+4) Select items (for example: items prices > 100$)
+
+SELECT *
+FROM Item
+WHERE price>100
+
+5) Select orders (for example: orders that are not yet shipped)
+
+SELECT *
+FROM Order
+WHERE isShipped="false"
+
+6) Delete an Item
+
+DELETE FROM Stores
+WHERE IID="THE USER INPUT"
+
+7) Join Client and Order tables 
+
+SELECT *
+FROM Client.CLID JOIN Order.OID 
+ON   Client.billingAddress=Order.shippingAddress   //Note, I am assuming these addressess are the same
+Where "WE CAN OPTONALLY CHOOSE WHATEVER CONDITION" //in order for this query to work. This assumtion shows to be really good in 
+                                                   //order for the last query (Report generation) in Client view to work.
+
+8)Select Orders with the maximum price (aggregation query) //Note, this query can be modified so it can be          
+                                                           //very advanced. We can discuss more on what we want 
+                                                          // to build with aggregate query
+SELECT MAX(price)  
+FROM Item.price;  
+
+--------------------------------------------------------------------------
+
+CLIENT QUERIES:
+
+1) Make an order:
+
+INSERT INTO Order_Makes
+(IID)
+VALUES
+("THE USER INPUT");
+
+2) Cancel order (delete an order):
+
+DELETE FROM Order_Makes
+WHERE OID="THE USER INPUT"
+
+3) Update credit card info
+
+UPDATE Client_Lives_In 
+SET creditCardNum = "THE USER INPUT" 
+WHERE CLID = "THE USER INPUT";   //NOTE, this field box (CLID) needs to be added to the UI of the Client view
+
+4) Update email
+
+UPDATE Client_Lives_In 
+SET email = "THE USER INPUT" 
+WHERE CLID = "THE USER INPUT";   //NOTE, this field box (CLID) needs to be added to the UI of the Client view
+
+5) Update address
+
+UPDATE Client 
+SET billingAddress  = "THE USER INPUT" 
+WHERE (CLID = "THE USER INPUT") AND (CID = "THE USER INPUT")   //NOTE, these field boxes (CLID & CID) need to be added to the UI of the Client view
+
+6) View an item
+
+SELECT *
+FROM Item
+WHERE IID = "THE USER INPUT"
+
+7) Select items (for example: items priced > 100$)
+
+SELECT *
+FROM Item
+WHERE price> "THE USER INPUT"
+
+8) Get orders history for a customer (ex: report generator)
+
+SELECT *
+FROM Order_makes
+WHERE shippingAddress=Client.billingAddress
+
