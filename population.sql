@@ -1,4 +1,4 @@
-
+CREATE DATABASE warehousProj;
 
 CREATE TABLE City 
 (CID int not null,
