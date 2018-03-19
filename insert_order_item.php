@@ -2,7 +2,7 @@
 <body>
 <?php 
    $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");              
-    $insertID = $_GET["IIDOrder"]; 
+    $insertIID = $_GET["IIDOrder"]; 
 
     // TODO: $finalStr is probably wrong, send halp
     echo($itemCategory);
