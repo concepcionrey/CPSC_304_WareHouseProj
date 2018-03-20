@@ -9,6 +9,9 @@
 
 <div id="boxed">
   TABLES WILL BE DISPLAYED HERE.
+    <ul>
+        <li><?php include('displayTables.php'); ?></li>
+    </ul>
 </div>
 
 
