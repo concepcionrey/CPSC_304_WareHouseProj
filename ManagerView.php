@@ -8,7 +8,6 @@
 </div>
 
 <div id="boxed">
-  TABLES WILL BE DISPLAYED HERE.
     <ul>
         <li><?php include('displayTables.php'); ?></li>
     </ul>
@@ -37,7 +36,7 @@
         Set the new price: <input type="text" name="priceUpdate">
         <button type="add item" id="updatePriceButton">Update price of an Item</button> <br>
     </form>
-
+    
     <form action="get_itemPriceGT.php" method="get">
         Items with price > <input type="text" name="retrievePrice">
         <button type="add item" id="selectItemsPriceButton">Select Items</button> <br>

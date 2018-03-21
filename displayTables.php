@@ -60,6 +60,86 @@
         echo "</table>";
     }
     
+    function printClient_Lives_InResult($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
+        echo "<table>";
+        echo "<tr><th>CLID</th><th>CID</th><th>billingAddress</th><th>Name</th><th>creditCardNum</th><th>Email</th><th>cellnum</th></tr>";
+
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<tr><td>" . $row["CLID"] . 
+                "</td><td>" . $row["CID"] . 
+                "</td><td>" . $row["BILLINGADDRESS"] . 
+                "</td><td>" . $row["NAME"] . 
+                "</td><td>" . $row["CREDITCARDNUM"] .
+                "</td><td>" . $row["EMAIL"] .
+                "</td><td>" . $row["CELLNUM"] .
+                "</td></tr>"; //or just use "echo $row[0]" 
+        }
+        echo "</table>";
+    }
+    
+    function printWarehouse_LocatedResult($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
+        echo "<table>";
+        echo "<tr><th>WID</th><th>CID</th><th>streetName</th><th>postalCode</th><th>numOfEmployees</th><th>numOfForklift</th></tr>";
+
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<tr><td>" . $row["WID"] . 
+                "</td><td>" . $row["CID"] . 
+                "</td><td>" . $row["STREETNAME"] . 
+                "</td><td>" . $row["POSTALCODE"] . 
+                "</td><td>" . $row["NUMOFEMPLOYEES"] .
+                "</td><td>" . $row["NUMOFFORKLIFT"] .
+                "</td></tr>"; //or just use "echo $row[0]" 
+        }
+        echo "</table>";
+    }
+    
+    function printOrder_Makes($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
+        echo "<table>";
+        echo "<tr><th>CLID</th><th>OD</th><th>ISSHIPPED</th><th>SHIPPINGADDRESS</th><th>DESIREDTIME</th><th>EXPECTEDDELIVERYTIME</th><th>ISDELIVERED</th></tr>";
+
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<tr><td>" . $row["CLID"] . 
+                "</td><td>" . $row["OD"] . 
+                "</td><td>" . $row["ISSHIPPED"] . 
+                "</td><td>" . $row["SHIPPINGADDRESS"] . 
+                "</td><td>" . $row["DESIREDTIME"] .
+                "</td><td>" . $row["EXPECTEDDELIVERYTIME"] .
+                "</td><td>" . $row["ISDELIVERED"] .
+                "</td></tr>"; //or just use "echo $row[0]" 
+        }
+        echo "</table>";
+    }
+    
+    function printStores($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
+        echo "<table>";
+        echo "<tr><th>WID</th><th>IID</th></tr>";
+
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<tr><td>" . $row["WID"] . 
+                "</td><td>" . $row["IID"] .
+                "</td></tr>"; //or just use "echo $row[0]" 
+        }
+        echo "</table>";
+    }
+    
+    function printContains($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
+        echo "<table>";
+        echo "<tr><th>IID</th><th>CLID</th></tr>";
+
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<tr><td>" . $row["IID"] . 
+                "</td><td>" . $row["CLID"] .
+                "</td></tr>"; //or just use "echo $row[0]" 
+        }
+        echo "</table>";
+    }
+    
+    
     $getStr = "SELECT * FROM Item";
     $result = executePlainSQL($getStr);
     printItemResult($result);
@@ -67,6 +147,26 @@
     $getStrCity = "SELECT * From City";
     $result = executePlainSql($getStrCity);
     printCityresult($result);
+    
+    $getStrLives = "SELECT * From Client_Lives_In";
+    $result = executePlainSql($getStrLives);
+    printClient_Lives_InResult($result);
+    
+    $getStrWarehouse = "SELECT * From Warehouse_Located";
+    $result = executePlainSql($getStrWarehouse);
+    printWarehouse_LocatedResult($result);
+    
+    $getStrOrder = "SELECT * From Order_Makes";
+    $result = executePlainSql($getStrOrder);
+    printOrder_Makes($result);
+    
+    $getStrStores = "SELECT * From STORES";
+    $result = executePlainSql($getStrStores);
+    printStores($result);
+    
+    $getStrContains = "SELECT * From CONTAINS";
+    $result = executePlainSql($getStrContains);
+    printContains($result);
 ?>
 </body>
 </html>
