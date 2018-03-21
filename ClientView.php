@@ -2,11 +2,15 @@
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<div id="boxed">
-  TABLES WILL BE DISPLAYED HERE.
-</div>
+
 <div id="boxedQuery">
     QUERY STRING WILL BE DISPLAYED HERE.
+</div>
+
+<div id="boxed">
+      <ul>
+        <li><?php include('displayClientTables.php'); ?></li>
+    </ul>
 </div>
 
 <div id = "queriesClient">
