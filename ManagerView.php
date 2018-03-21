@@ -16,13 +16,26 @@
 
 <div id = "queriesManager">
     <form action="insert_item.php" method="get">
-        Item ID:<input type="text" name="IIDInsert"> 
-        Item Category:<input type="text" name="itemCategoryInsert"> 
-        Item name:<input type="text" name="nameInsert">
-        Item Price:<input type="text" name="priceInsert">
-        Item Supply code:<input type="text" name="supplyCodeInsert">
-        Item Stock:<input type="text" name="stockInsert">
+        Item ID:<input type="text" name="IIDInsert" id="IIDInsert"> 
+        Item Category:<input type="text" name="itemCategoryInsert" id="itemCategoryInsert"> 
+        Item name:<input type="text" name="nameInsert" id="nameInsert">
+        Item Price:<input type="text" name="priceInsert" id="priceInsert">
+        Item Supply code:<input type="text" name="supplyCodeInsert" id="supplyCodeInsert">
+        Item Stock:<input type="text" name="stockInsert" id="stockInsert">
         <button type="add item" id="addItemButton">Add Item to Items table</button> <br>
+        
+        <script type="text/javascript">
+            document.getElementById('addItemButton').onclick = function() {
+                var id = document.getElementById("IIDInsert").value + ", ";
+                var cat = document.getElementById("itemCategoryInsert").value+ ", ";
+                var name = document.getElementById("nameInsert").value+ ", ";
+                var price = document.getElementById("priceInsert").value+ ", ";
+                var supplyCode = document.getElementById("supplyCodeInsert").value+ ", ";
+                var stock = document.getElementById("stockInsert").value+ ", ";
+                var finStr =  "INSERT INTO Item (IID, category, name, price, supplierCode, itemStock) VALUES ("+ id + cat + name + price + supplyCode + stock + ")";
+                alert(finStr);
+            }
+        </script>
     </form>
 
     <form action="update_itemStock.php" method="get">
