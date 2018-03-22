@@ -31,7 +31,7 @@
                 var name = document.getElementById("nameInsert").value+ ", ";
                 var price = document.getElementById("priceInsert").value+ ", ";
                 var supplyCode = document.getElementById("supplyCodeInsert").value+ ", ";
-                var stock = document.getElementById("stockInsert").value+ ", ";
+                var stock = document.getElementById("stockInsert").value;
                 var finStr =  "INSERT INTO Item (IID, category, name, price, supplierCode, itemStock) VALUES ("+ id + cat + name + price + supplyCode + stock + ")";
                 alert(finStr);
             }
@@ -39,24 +39,47 @@
     </form>
 
     <form action="update_itemStock.php" method="get">
-        Item ID: <input type="text" name="IIDUpdateStock">
-        Update stock by: <input type="text" name="stockUpdate">
+        Item ID: <input type="text" name="IIDUpdateStock" id="IIDUpdateStock">
+        Update stock by: <input type="text" name="stockUpdate" id="stockUpdate">
         <button type="add item" id="updateStockButton">Update stock of an Item</button> <br>
+        <script type="text/javascript">
+            document.getElementById('updateStockButton').onclick = function() {
+                var id = document.getElementById("IIDUpdateStock").value;
+                var stock = document.getElementById("stockUpdate").value;
+                var finStr =  "UPDATE Item SET itemStock =" +stock+  " WHERE IID = " + id;
+                alert(finStr);
+            }
+        </script>
     </form>
 
     <form action="update_itemPrice.php" method="get">
-        Item ID: <input type="text" name="IIDUpdatePrice">
-        Set the new price: <input type="text" name="priceUpdate">
+        Item ID: <input type="text" name="IIDUpdatePrice" id="IIDUpdatePrice">
+        Set the new price: <input type="text" name="priceUpdate" id="priceUpdate">
         <button type="add item" id="updatePriceButton">Update price of an Item</button> <br>
+        <script type="text/javascript">
+            document.getElementById('updatePriceButton').onclick = function() {
+                var id = document.getElementById("IIDUpdatePrice").value;
+                var price = document.getElementById("priceUpdate").value;
+                var finStr =  "UPDATE Item SET itemPrice =" +price+  " WHERE IID = " + id;
+                alert(finStr);
+            }
+        </script>
     </form>
     
     <form action="get_itemPriceGT.php" method="get">
-        Items with price > <input type="text" name="retrievePrice">
+        Items with price > <input type="text" name="retrievePrice" id="retrievePrice">
         <button type="add item" id="selectItemsPriceButton">Select Items</button> <br>
+        <script type="text/javascript">
+            document.getElementById('selectItemsPriceButton').onclick = function() {
+                var price = document.getElementById("retrievePrice").value;
+                var finStr =  "SELECT * FROM Item WHERE price > " + price;
+                alert(finStr);
+            }
+        </script>
     </form>
 
     <form action="get_itemNotShipped.php" method="get">
-    <button type="add item" id="notShippedItemsButton">Display not yet shipped orders</button> <br>
+        <button type="add item" id="notShippedItemsButton">Display not yet shipped orders</button> <br>
     </form>
 
     <form action="delete_item" method="get">
