@@ -3,8 +3,9 @@
 <?php
     $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
     $updateCreditCard = $_GET["creditCardNumberUpdate"];
+    $clientCLID = $_GET["CLIDupdate"];
 
-    $finalStr = "UPDATE Client_Lives_in SET creditCardNum = {$updateCreditCard} WHERE CLID = {$updateCreditCard}";
+    $finalStr = "UPDATE Client_Lives_in SET creditCardNum = {$updateCreditCard} WHERE CLID = {$clientCLID}";
     echo($finalStr);
     $stid = oci_parse($conn, $finalStr);
     $x = oci_execute($stid);  
