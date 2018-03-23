@@ -22,7 +22,7 @@
 </form>
     
     <form action="cancel_order_client.php", method="get">
-    Order ID: <input type="text" name="cancelOrderID"> 
+    Order ID: <input type="text" name="cancelOrderID", id="cancelOrderID"> 
     <button type="add item" id="updateStockButton">Cancel Order</button> <br>
 </form>
     
