@@ -2,11 +2,13 @@
 <body>
 <?php 
    $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");              
-    $insertIID = $_GET["IIDOrder"]; 
+    $orderIID = $_GET["IIDOrder"];
+    $orderCLID = $_GET["CLIDOrder"]; 
+    $orderOD = $_GET["ODOrder"];
 
-    // TODO: $finalStr is probably wrong, send halp
+    // TODO: $orderOD fails to preserve value
     echo($itemCategory);
-    $finalStr = "INSERT INTO CONTAINS (IID, CLID, OD) VALUES ('{$insertID}')";
+    $finalStr = "INSERT INTO CONTAINS (IID, CLID, OD) VALUES ('{$orderIID}', '{$orderCLID}', '{$orderOD}')";
     echo($finalStr);
     
     $stid = oci_parse($conn, $finalStr);

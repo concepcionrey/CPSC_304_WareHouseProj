@@ -14,8 +14,10 @@
 </div>
 
 <div id = "queriesClient">
-    <form action="insert_order_item.php", method="get">
-    Item IID:<input type="text" name="IIDOrder">
+    <form action="insert_order_client.php", method="get">
+    Item IID:<input type="text" name="IIDOrder" id="IIDOrder">
+    Client CLID:<input type="text" name="CLIDOrder" id="CLIDOrder">
+    Order OD:<input type="text" name="ODOrder" id="ODOrder">
     <button type="add item" id="addItemButton">Order Item</button> <br>
 </form>
     
