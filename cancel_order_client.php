@@ -6,7 +6,7 @@
    
     // TODO check if right
     echo($itemCategory);
-    $finalStr = "DELETE FROM Order_Makes WHERE OD ='$cancelOD';
+    $finalStr = "DELETE FROM Order_Makes WHERE OD ='$cancelOD'";
     echo($finalStr);
     
     $stid = oci_parse($conn, $finalStr);

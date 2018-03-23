@@ -27,7 +27,7 @@
 </form>
     
     <form action="update_creditCardNumber_client.php", method="get">
-    New Credit Card#: <input type="text" name="creditCardNumberUpdate"> 
+    New Credit Card#: <input type="text" name="creditCardNumberUpdate" id="creditCardNumberUpdate"> 
     <button type="add item" id="updateCreditCard">Update credit card info</button> <br>
 </form>
     
