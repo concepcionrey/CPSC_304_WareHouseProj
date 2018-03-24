@@ -51,5 +51,14 @@
     
     
 ?>
+    
+<!--
+<script>
+    var id = prompt("Please Enter Your Client ID");
+    if (id != null) {
+        alert("Welcome " + id);
+    }
+</script>
+-->
 </body>
 </html>

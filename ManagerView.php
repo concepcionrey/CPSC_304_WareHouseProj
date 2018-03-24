@@ -34,6 +34,7 @@
                 var stock = document.getElementById("stockInsert").value;
                 var finStr =  "INSERT INTO Item (IID, category, name, price, supplierCode, itemStock) VALUES ("+ id + cat + name + price + supplyCode + stock + ")";
                 alert(finStr);
+                
             }
         </script>
     </form>
