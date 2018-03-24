@@ -8,9 +8,12 @@
 </div>
         
 <script>
-    var id = prompt("Please Enter Your Client ID");
-    if (id != null) {
-        alert("Welcome " + id);
+    if (performance.navigation.type != 1) {
+        var id = prompt("Please Enter Your Client ID");
+        document.cookie = id;
+        if (id != null) {
+            alert("Welcome " + id);
+        }
     }
 </script>
 
@@ -27,7 +30,7 @@
         Order OD:<input type="text" name="ODOrder" id="ODOrder">
         <button type="add item" id="addItemButton">Order Item</button> <br>
         <script>
-            document.getElementById("CLIDOrder").value = id;
+            document.getElementById("CLIDOrder").value = document.cookie.split(";")[0];
         </script>
     </form>
     
