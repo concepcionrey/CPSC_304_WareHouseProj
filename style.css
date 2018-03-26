@@ -25,6 +25,7 @@
     text-align:center;
 }
 #boxed {
+    overflow: auto;
     position:absolute;
     top:10%;
     left:2.5%;
