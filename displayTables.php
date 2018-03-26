@@ -129,11 +129,12 @@
     function printContains($result) { //prints results from a select statement
         // echo "<br>Item Table:";
         echo "<table>";
-        echo "<tr><th>IID</th><th>CLID</th></tr>";
+        echo "<tr><th>IID</th><th>CLID</th><th>OD</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
             echo "<tr><td>" . $row["IID"] . 
                 "</td><td>" . $row["CLID"] .
+                "</td><td>" . $row["OD"] .
                 "</td></tr>"; //or just use "echo $row[0]" 
         }
         echo "</table>";
