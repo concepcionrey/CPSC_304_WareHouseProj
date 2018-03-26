@@ -1,17 +1,8 @@
 <html>
 <body>
 <?php
-//    header('Location: ManagerView.php');
-    $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-    $retrievePrice = $_GET["retrievePrice"];
 
-    $finalStr =
-    "SELECT * FROM Item
-    WHERE price > {$retrievePrice}";
-
-    $result = executePlainSQL($finalStr);
-    printItemResult($result);
-    
+    $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug"); 
     function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
         //echo "<br>running ".$cmdstr."<br>";
         global $conn, $success;
@@ -38,6 +29,7 @@
     }
     
     function printItemResult($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
         echo "<table>";
         echo "<tr><th>ID</th><th>Name</th><th>Category</th><th>Supplier Code</th><th>Item Stock</th><th>Price</th></tr>";
 
@@ -51,21 +43,22 @@
                 "</td></tr>"; //or just use "echo $row[0]" 
         }
         echo "</table>";
-        
     }
-//    function goBackToManagerView(){
-//        header('Location: ManagerView.php');
-//        exit;
-//    }
-//    
+        
+    $getStr = "SELECT * FROM Item";
+    $result = executePlainSQL($getStr);
+    printItemResult($result);
+    
+    
 ?>
-<script type="text/javascript">
-//    var str = "<?php echo $retrievePrice?>";
-//    var finalStr = "SELECT * FROM Item WHERE price > " + str;
-////    var res = "<?php executePlainSQL("SELECT * FROM Item WHERE price > 100")?>";
-////    alert("<?php printItemResult(executePlainSQL("SELECT * FROM Item WHERE price > $retrievePrice"))?>");
-//    var fin = "<?php printItemResult(executePlainSQL("SELECT * FROM Item WHERE price > $retrievePrice"))?>";
-//    alert(fin);
+    
+<!--
+<script>
+    var id = prompt("Please Enter Your Client ID");
+    if (id != null) {
+        alert("Welcome " + id);
+    }
 </script>
+-->
 </body>
 </html>

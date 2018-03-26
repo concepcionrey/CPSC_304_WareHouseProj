@@ -5,7 +5,7 @@
     $itemID = $_GET["IIDUpdatePrice"];
     $priceUpdate = $_GET["priceUpdate"];
 
-    $finalStr = "UPDATE Item SET itemStock = {$priceUpdate} WHERE IID = {$itemID}";
+    $finalStr = "UPDATE Item SET itemPrice = {$priceUpdate} WHERE IID = {$itemID}";
 
     $stid = oci_parse($conn, $finalStr);
     $x = oci_execute($stid);
