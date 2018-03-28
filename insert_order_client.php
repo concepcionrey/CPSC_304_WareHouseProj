@@ -7,10 +7,16 @@
     $orderOD = $_GET["ODOrder"];
 
     // TODO: $orderOD fails to preserve value
-    echo($itemCategory);
+   // echo($itemCategory);
     $finalStr = "INSERT INTO CONTAINS (IID, CLID, OD) VALUES ('{$orderIID}', '{$orderCLID}', '{$orderOD}')";
-    $result = executePlainSQL($finalStr);
-    printItemResult($result);
+
+    $stid = oci_parse($conn, $finalStr);
+    $x = oci_execute($stid);
+
+
+    $printStr = "SELECT * FROM CONTAINS";
+    $result = executePlainSQL($printStr);
+    printContains($result);
 
     function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
         //echo "<br>running ".$cmdstr."<br>";
@@ -37,24 +43,20 @@
         return $statement;
     }
     
-    function printItemResult($result) { //prints results from a select statement
+    function printContains($result) { //prints results from a select statement
+        // echo "<br>Item Table:";
         echo "<table>";
-        echo "<tr><th>ID</th><th>Client ID</th><th>OD</th></th></tr>";
+        echo "<tr><th>Item ID</th><th>Client ID</th><th>Order ID</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
             echo "<tr><td>" . $row["IID"] . 
-                "</td><td>" . $row["CLID"] . 
-                "</td><td>" . $row["OD"] . 
+                "</td><td>" . $row["CLID"] .
+                "</td><td>" . $row["OD"] .
                 "</td></tr>"; //or just use "echo $row[0]" 
         }
         echo "</table>";
-        
     }
-
-    $stid = oci_parse($conn, $finalStr);
-    $x = oci_execute($stid);
-    header('Location: ClientView.php');
-    exit;
+    
 ?>
 
 </body>
