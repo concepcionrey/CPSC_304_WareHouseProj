@@ -3,8 +3,9 @@
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-$finalStr =
-    "select max(x) from (select avg(price) as x from item group by category)";
+$finalStr = "SELECT streetName, W.WID, IID
+              FROM Warehouse_Located W, Stores S
+              WHERE w.WID = S.WID";
 
 echo($finalStr);
 
