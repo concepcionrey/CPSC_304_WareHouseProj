@@ -47,6 +47,15 @@
             document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
         </script>
     </form>
+
+    <form action="update_address_client.php", method="get">
+        New address: <input type="text" name="addressUpdate" id="addressUpdate"> 
+        Client CLID:<input type="text" name="CLIDupdate" id="CLIDupdate">
+        <button type="add item" id="updateAddress">Update Address</button> <br>
+        <script>
+            document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
+        </script>
+    </form>
     
     <form action="update_email_client.php", method="get">
         New email: <input type="text" name="emailUpdate" id="emailUpdate"> 
@@ -57,17 +66,17 @@
         </script>
     </form>
     
-    <form action="select_items_client", method="get">
+    <form action="select_items_client.php", method="post">
         
         Items with price 
-        <select>
+        <select name="operator">
             <option value=">">&gt;</option>
-            <option value="<">&lt;  </option>
+            <option value="<">&lt;</option>
             <option value="=">=</option>
             <option value=">=">&ge;</option>
             <option value="<=">&le;</option>
         </select> 
-        <input type="text" name="retrievePrice">
+        <input type="text" name="retrievePrice" id="retrievePrice">
         <button type="add item" id="selectItemsPriceButton">Select Items</button> <br>
     </form>
 </div>
