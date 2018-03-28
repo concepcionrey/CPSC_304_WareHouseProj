@@ -3,10 +3,6 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<div id="boxedQuery">
-    QUERY STRING WILL BE DISPLAYED HERE.
-</div>
-        
 <script>
     if (performance.navigation.type != 1 && performance.navigation.type != 2) {
         var id = prompt("Please Enter Your Client ID");

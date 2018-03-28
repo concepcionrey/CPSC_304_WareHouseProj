@@ -3,10 +3,6 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<div id="boxedQuery">
-    QUERY STRING WILL BE DISPLAYED HERE.
-</div>
-
 <div id="boxed">
     <ul>
         <li><?php include('displayTables.php'); ?></li>
@@ -26,15 +22,16 @@
         
         <script type="text/javascript">
             document.getElementById('addItemButton').onclick = function() {
-                var id = document.getElementById("IIDInsert").value + ", ";
-                var cat = document.getElementById("itemCategoryInsert").value+ ", ";
-                var name = document.getElementById("nameInsert").value+ ", ";
-                var price = document.getElementById("priceInsert").value+ ", ";
-                var supplyCode = document.getElementById("supplyCodeInsert").value+ ", ";
+                var id = document.getElementById("IIDInsert").value;
+                var cat = document.getElementById("itemCategoryInsert").value;
+                var name = document.getElementById("nameInsert").value;
+                var price = document.getElementById("priceInsert").value;
+                var supplyCode = document.getElementById("supplyCodeInsert").value;
                 var stock = document.getElementById("stockInsert").value;
-                var finStr =  "INSERT INTO Item (IID, category, name, price, supplierCode, itemStock) VALUES ("+ id + cat + name + price + supplyCode + stock + ")";
-                alert(finStr);
-                
+                if (id && cat && name && price && supplyCode && stock){
+                    var finStr =  "INSERT INTO Item (IID, category, name, price, supplierCode, itemStock) VALUES ("+ id + ", " + cat+ ", " + name+ ", " + price + ", "+ supplyCode+ ", " + stock + ")";
+                    alert(finStr);
+                }
             }
         </script>
     </form>
@@ -47,8 +44,10 @@
             document.getElementById('updateStockButton').onclick = function() {
                 var id = document.getElementById("IIDUpdateStock").value;
                 var stock = document.getElementById("stockUpdate").value;
-                var finStr =  "UPDATE Item SET itemStock =" +stock+  " WHERE IID = " + id;
-                alert(finStr);
+                if (id && stock){
+                    var finStr =  "UPDATE Item SET itemStock =" +stock+  " WHERE IID = " + id;
+                    alert(finStr);
+                }
             }
         </script>
     </form>
@@ -61,8 +60,10 @@
             document.getElementById('updatePriceButton').onclick = function() {
                 var id = document.getElementById("IIDUpdatePrice").value;
                 var price = document.getElementById("priceUpdate").value;
-                var finStr =  "UPDATE Item SET itemPrice =" +price+  " WHERE IID = " + id;
-                alert(finStr);
+                if (id && price){
+                    var finStr =  "UPDATE Item SET itemPrice =" +price+  " WHERE IID = " + id;
+                    alert(finStr);
+                }
             }
         </script>
     </form>
