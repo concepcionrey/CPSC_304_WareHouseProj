@@ -15,21 +15,12 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
-#boxedQuery{
-    position:absolute;
-    top:1%;
-    left:2.5%;
-    height:8%;
-    width:95%;
-    border: 1px solid black;
-    text-align:center;
-}
 #boxed {
     overflow: auto;
     position:absolute;
-    top:10%;
+    top:1%;
     left:2.5%;
-    height:50%;
+    height:55%;
     width:95%;
     border: 1px solid black;
     text-align:center;
