@@ -43,12 +43,18 @@
         New Credit Card#: <input type="text" name="creditCardNumberUpdate" id="creditCardNumberUpdate"> 
         Client CLID:<input type="text" name="CLIDupdate" id="CLIDupdate">
         <button type="add item" id="updateCreditCard">Update credit card info</button> <br>
+        <script>
+            document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
+        </script>
     </form>
     
     <form action="update_email_client.php", method="get">
         New email: <input type="text" name="emailUpdate" id="emailUpdate"> 
         Client CLID:<input type="text" name="CLIDupdate" id="CLIDupdate">
         <button type="add item" id="updateEmail">Update Email</button> <br>
+        <script>
+            document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
+        </script>
     </form>
     
     <form action="select_items_client", method="get">

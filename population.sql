@@ -16,8 +16,7 @@ creditCardNum varchar(255) null,
 Email varChar(255) null,
 cellnum varchar(255) null,
 Primary key (CLID),
-Foreign key (CID) references City
-ON DELETE CASCADE);
+Foreign key (CID) references City ON DELETE CASCADE);
 
 CREATE TABLE Item (
 IID varchar(40) not null,
@@ -36,8 +35,7 @@ postalCode varchar(7) null,
 numOfEmployees int null,
 numOfForklift int null,
 Primary key (WID),
-Foreign key (CID) references City 
-ON DELETE CASCADE);
+Foreign key (CID) references City ON DELETE CASCADE);
 
 CREATE TABLE Order_Makes (
 CLID int not null,
@@ -49,7 +47,6 @@ ExpectedDeliveryTime varchar(255) null,
 IsDelivered varchar(5) null,
 Primary key (CLID, OD),
 FOREIGN KEY (CLID) references Client_Lives_In ON DELETE CASCADE);
-
 
 CREATE TABLE STORES 
 (WID int  not null,
@@ -117,32 +114,70 @@ INSERT INTO Client_Lives_In
 VALUES
 (50000000, 00000005, '2341, Moric Road, Abbotsford, BC, U7T 2W1', 'Bruce Wayne', '1234567890987654', 'wayne_industries@gmail.com', '6041239900');
 
-
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000001, 'Appliances', 'Humidifier', 57.60, 12345, 695);
 
 INSERT INTO Item
 (IID, category, name, price, supplierCode, itemStock)
 VALUES
-(10000001, 'Appliances000', 'Humidifier', 57.60, 12345, 695);
+(10000002, 'Appliances', 'Toaster', 35.99, 12345, 345);
 
 INSERT INTO Item
 (IID, category, name, price, supplierCode, itemStock)
 VALUES
-(20000002, 'Toys', 'Solar Glasses', 5.25, 40987, 4025);
+(10000003, 'Appliances', 'Rice Cooker', 45.99, 12345, 159);
 
 INSERT INTO Item
 (IID, category, name, price, supplierCode, itemStock)
 VALUES
-(30000003, 'Thingies', 'Expensive thingy', 169.69, 50345, 515);
+(10000004, 'Toys', 'Solar Glasses', 5.25, 40987, 4025);
 
 INSERT INTO Item
 (IID, category, name, price, supplierCode, itemStock)
 VALUES
-(40000004, 'Electronics', '58 Smart LED Tv', 840.00, 43340, 40);
+(10000005, 'Toys', 'Hot Wheels', 5.99, 40335, 932);
 
 INSERT INTO Item
 (IID, category, name, price, supplierCode, itemStock)
 VALUES
-(50000005, 'Furniture', 'Couch', 85.89, 22111, 854);
+(10000006, 'Food', 'Belgian Chocolate', 169.69, 50345, 515);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000007, 'Food', 'Russian Spaghetti', 50.55, 50299, 700);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000008, 'Electronics', '58 Smart LED Tv', 840.00, 43340, 40);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000009, 'Electronics', 'PS4', 855.45, 41134, 688);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000010, 'Electronics', 'Google Mini', 67.99, 75456, 289);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000011, 'Furniture', 'Couch', 85.89, 22111, 854);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000012, 'Furniture', 'Standing Table', 239.99, 22111, 211);
+
+INSERT INTO Item
+(IID, category, name, price, supplierCode, itemStock)
+VALUES
+(10000013, 'Furniture', 'Computer Desk', 320.49, 45687, 351);
 
 INSERT INTO Order_Makes
 (CLID, OD, isShipped, shippingAddress, desiredTime, ExpectedDeliveryTime, isDelivered)
@@ -202,22 +237,122 @@ VALUES
 INSERT INTO STORES
 (WID, IID)
 VALUES
-(4002, 20000002);
+(4002, 10000001);
 
 INSERT INTO STORES
 (WID, IID)
 VALUES
-(4003, 30000003);
+(4002, 10000002);
 
 INSERT INTO STORES
 (WID, IID)
 VALUES
-(4004, 40000004);
+(4002, 10000003);
 
 INSERT INTO STORES
 (WID, IID)
 VALUES
-(4005, 50000005);
+(4002, 10000004);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000005);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000006);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000007);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000008);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000009);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000010);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000011);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000012);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4002, 10000013);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4003, 10000003);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4004, 10000008);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4004, 10000006);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4004, 10000004);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4004, 10000002);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4004, 10000001);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4005, 10000011);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4005, 10000002);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4005, 10000007);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4005, 10000009);
+
+INSERT INTO STORES
+(WID, IID)
+VALUES
+(4005, 10000010);
 
 INSERT INTO CONTAINS
 (IID, CLID, OD)
@@ -227,27 +362,19 @@ VALUES
 INSERT INTO CONTAINS
 (IID, CLID, OD)
 VALUES
-(20000002, 20000000, 66984248);
+(10000004, 20000000, 66984248);
 
 INSERT INTO CONTAINS
 (IID, CLID, OD)
 VALUES
-(30000003, 30000000, 98486248);
+(10000003, 30000000, 98486248);
 
 INSERT INTO CONTAINS
 (IID, CLID, OD)
 VALUES
-(40000004, 40000000, 22258748);
+(10000004, 40000000, 22258748);
 
 INSERT INTO CONTAINS
 (IID, CLID, OD)
 VALUES
-(50000005, 50000000, 96584125);
-
-
-
-
-
-
-
-
+(10000011, 50000000, 96584125);
