@@ -8,7 +8,7 @@
 </div>
         
 <script>
-    if (performance.navigation.type != 1) {
+    if (performance.navigation.type != 1 && performance.navigation.type != 2) {
         var id = prompt("Please Enter Your Client ID");
         document.cookie = id;
         if (id != null) {
