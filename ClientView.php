@@ -50,19 +50,19 @@
 
     <form action="update_address_client.php", method="get">
         New address: <input type="text" name="addressUpdate" id="addressUpdate"> 
-        Client CLID:<input type="text" name="CLIDupdate" id="CLIDupdate">
+        Client CLID:<input type="text" name="CLIDupdate" id="CLIDAddress">
         <button type="add item" id="updateAddress">Update Address</button> <br>
         <script>
-            document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
+            document.getElementById("CLIDAddress").value = document.cookie.split(";")[0];
         </script>
     </form>
     
     <form action="update_email_client.php", method="get">
         New email: <input type="text" name="emailUpdate" id="emailUpdate"> 
-        Client CLID:<input type="text" name="CLIDupdate" id="CLIDupdate">
+        Client CLID:<input type="text" name="CLIDupdate" id="CLIDEmail">
         <button type="add item" id="updateEmail">Update Email</button> <br>
         <script>
-            document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
+            document.getElementById("CLIDEmail").value = document.cookie.split(";")[0];
         </script>
     </form>
     
