@@ -417,7 +417,8 @@
     
     function printItemResult($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<table align=center>";
+        echo "Items";
         echo "<tr><th>ID</th><th>Name</th><th>Category</th><th>Supplier Code</th><th>Item Stock</th><th>Price</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -434,7 +435,9 @@
     
     function printCityResult($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<br>";
+        echo "<table align=center>";
+        echo "City";
         echo "<tr><th>ID</th><th>Name</th><th>Country</th><th>Region</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -449,7 +452,9 @@
     
     function printClient_Lives_InResult($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<br>";
+        echo "<table align=center>";
+        echo "Client";
         echo "<tr><th>CLID</th><th>CID</th><th>billingAddress</th><th>Name</th><th>creditCardNum</th><th>Email</th><th>cellnum</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -467,7 +472,9 @@
     
     function printWarehouse_LocatedResult($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<br>";
+        echo "<table align=center>";
+        echo "Warehouse";
         echo "<tr><th>WID</th><th>CID</th><th>streetName</th><th>postalCode</th><th>numOfEmployees</th><th>numOfForklift</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -484,7 +491,9 @@
     
     function printOrder_Makes($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<br>";
+        echo "<table align=center>";
+        echo "Order";
         echo "<tr><th>CLID</th><th>OD</th><th>ISSHIPPED</th><th>SHIPPINGADDRESS</th><th>DESIREDTIME</th><th>EXPECTEDDELIVERYTIME</th><th>ISDELIVERED</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -502,7 +511,9 @@
     
     function printStores($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<br>";
+        echo "<table align=center>";
+        echo "Warehouse Stores";
         echo "<tr><th>WID</th><th>IID</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -515,7 +526,9 @@
     
     function printContains($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<br>";
+        echo "<table align=center>";
+        echo "Order Contains";
         echo "<tr><th>IID</th><th>CLID</th><th>OD</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
@@ -525,6 +538,7 @@
                 "</td></tr>"; //or just use "echo $row[0]" 
         }
         echo "</table>";
+        echo "<br>";
     }
     
         

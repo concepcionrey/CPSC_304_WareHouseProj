@@ -5,16 +5,28 @@
 
 <script>
     if (performance.navigation.type != 1 && performance.navigation.type != 2) {
-        var id = prompt("Please Enter Your Client ID");
-        document.cookie = id;
-        if (id != null) {
-            alert("Welcome " + id);
+        while(true){
+            var id = prompt("Please Enter Your Client ID");
+            if (id == "10000000" || id == "20000000"|| id == "30000000"|| id == "40000000"|| id == "50000000"){
+                document.cookie = id; 
+                if (id != null) {
+                    alert("Welcome " + id);
+                    break;
+                }
+            }
+            else{
+                alert ("ID wasn't found. Please try again.");
+                continue;
+            }   
         }
     }
 </script>
 
 <div id="boxed">
       <ul>
+        <li>Logged as:<script>
+            document.write(id);
+                </script></li>
         <li><?php include('displayClientTables.php'); ?></li>
     </ul>
 </div>
