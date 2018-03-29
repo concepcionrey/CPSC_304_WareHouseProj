@@ -115,7 +115,7 @@
     </form>
 
     <form action="findCategoryAvg_manager.php", method="post">
-        <select name="operator">
+        <select name="operator" id="operator">
             <option value="max"> Maximum</option>
             <option value="min"> Minimum</option>
         </select>
@@ -123,7 +123,7 @@
     </form>
 
     <form action="get_itemCategoryAggregationPrice_manager.php", method="post">
-        <select name="operator">
+        <select name="operator" id="operator">
             <option value="max"> Maximum</option>
             <option value="min"> Minimum</option>
             <option value="avg"> Average</option>
