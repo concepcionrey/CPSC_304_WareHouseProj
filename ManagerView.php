@@ -145,20 +145,34 @@
     </form>
 
     <form action="findCategoryAvg_manager.php", method="post">
-        <select name="operator" id="operator">
+        <select name="operator" id="operatorFind">
             <option value="max"> Maximum</option>
             <option value="min"> Minimum</option>
         </select>
-        <button type="add item" id="selectItemsPriceButton">Average Category price</button> <br>
+        <button type="add item" id="selectAverageCategoryButton">Average Category price</button> <br>
+        <script type="text/javascript">
+            document.getElementById('selectAverageCategoryButton').onclick = function() {
+                var op = document.getElementById("operatorFind").value;
+                var finStr = "select " + op  + "(x) from (select avg(price) as x from item group by category)";
+                        alert(finStr);
+                      }
+        </script>
     </form>
 
     <form action="get_itemCategoryAggregationPrice_manager.php", method="post">
-        <select name="operator" id="operator">
+        <select name="operator" id="operatorGet">
             <option value="max"> Maximum</option>
             <option value="min"> Minimum</option>
             <option value="avg"> Average</option>
         </select>
-        <button type="add item" id="selectItemsPriceButton">Price in Catagory</button> <br>
+        <button type="add item" id="selectPriceCategoryButton">Price in Category</button> <br>
+        <script type="text/javascript">
+            document.getElementById('selectPriceCategoryButton').onclick = function() {
+                var op = document.getElementById("operatorGet").value;
+                var finStr = "select category, " + op  + "(price) from item group by category";
+                        alert(finStr);
+                      }
+        </script>
     </form>
 
 </div>
