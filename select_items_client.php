@@ -6,7 +6,7 @@
     $myValue = $_POST["operator"];
    
     $finalStr = "SELECT * FROM Item WHERE price $myValue $updateAddress";
-    echo($finalStr);
+    //echo($finalStr);
     
     $stid = oci_parse($conn, $finalStr);
     $x = oci_execute($stid);
