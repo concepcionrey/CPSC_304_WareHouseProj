@@ -24,9 +24,25 @@
 
 <div id="boxed">
       <ul>
-        <li>Logged as:<script>
-            document.write(id);
-                </script></li>
+        <li>
+            <form action="getClientOrders.php", method="get">
+                Logged as :<input type="text" name ="ClientID" id="ClientID" readonly="readonly">
+                <script>
+                    document.getElementById("ClientID").value = document.cookie.split(";")[0];
+//                    document.getElementById('getClientForm').submit();
+                </script>
+                <button type="showOrders" id="showOrders">Show my Orders</button>
+                <script type="text/javascript">
+                    document.getElementById('showOrders').onclick = function(){
+                        alert("SELECT * FROM Order_Makes WHERE CLID = " + document.cookie.split(";")[0]);
+                    }
+                </script>
+            </form>
+        </li>
+<!--
+          <li><iframe name="myIframe">
+            </iframe></li>
+-->
         <li><?php include('displayClientTables.php'); ?></li>
     </ul>
 </div>
@@ -34,7 +50,7 @@
 <div id = "queriesClient">
     <form action="insert_order_client.php", method="get">
         Item IID:<input type="text" name="IIDOrder"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="IIDOrder">
-        Client CLID:<input type="text" name="CLIDOrder"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDOrder">
+        Client CLID:<input type="text" name="CLIDOrder"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDOrder" readonly="readonly">
         Order OD:<input type="text" name="ODOrder"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="ODOrder">
         <button type="add item" id="addItemButton">Order Item</button> <br>
         <script type="text/javascript">
@@ -54,7 +70,6 @@
         </script>
     </form>
 
-    
     <form action="cancel_order_client.php", method="get">
         Order OD: <input type="text" name="cancelOrderID",  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="cancelOrderID">
         <button type="add item" id="updateStockButton">Cancel Order</button> <br>
@@ -74,7 +89,7 @@
     
     <form action="update_creditCardNumber_client.php", method="get">
         New Credit Card#: <input type="text" name="creditCardNumberUpdate"  maxlength="16" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="creditCardNumberUpdate">
-        Client CLID:<input type="text" name="CLIDupdate"   maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDupdate">
+        Client CLID:<input type="text" name="CLIDupdate"   maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDupdate" readonly="readonly">
         <button type="add item" id="updateCreditCard">Update credit card info</button> <br>
         <script type="text/javascript">
             document.getElementById("CLIDupdate").value = document.cookie.split(";")[0];
@@ -94,7 +109,7 @@
 
     <form action="update_address_client.php", method="get">
         New address: <input type="text" name="addressUpdate" maxlength="40"  title="Please enter your address."  placeholder="Enter your address." id="addressUpdate">
-        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDAddress">
+        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDAddress" readonly="readonly">
         <button type="add item" id="updateAddress">Update Address</button> <br>
         <script type="text/javascript">
             document.getElementById("CLIDAddress").value = document.cookie.split(";")[0];
@@ -114,7 +129,7 @@
     
     <form action="update_email_client.php", method="get">
         New email: <input type="text" name="emailUpdate" maxLength="40" title="Please enter your email address."  placeholder="Enter your email address." id="emailUpdate">
-        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDEmail">
+        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDEmail" readonly="readonly">
         <button type="add item" id="updateEmail">Update Email</button> <br>
         <script type="text/javascript">
             document.getElementById("CLIDEmail").value = document.cookie.split(";")[0];
