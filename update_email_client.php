@@ -6,9 +6,9 @@
     $clientCLID = $_GET["CLIDupdate"];
    
     // TODO check if right
-    echo($itemCategory);
+   // echo($itemCategory);
     $finalStr = "UPDATE Client_Lives_in SET email = '{$updateEmail}' WHERE CLID ='$clientCLID'";
-    echo($finalStr);
+    //echo($finalStr);
     
     $stid = oci_parse($conn, $finalStr);
     $x = oci_execute($stid);

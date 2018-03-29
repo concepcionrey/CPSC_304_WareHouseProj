@@ -34,6 +34,9 @@
                 if (iid && clid && od) {
                     var finalStr = "Insert INTO CONTAINS (IID, CLID, OD) VALUES ("+ iid + ", " + clid +", " + od + ")";
                     alert(finalStr); 
+                } else {
+                    var errStr = "Insert failed";
+                    alert(errStr);
                 }
             }
         </script>
@@ -49,6 +52,9 @@
                 if (od) {
                     var finalStr = "DELETE FROM Order_Makes WHERE OD = "+ od; 
                     alert(finalStr); 
+                } else {
+                    var errStr = "Cancellation failed";
+                    alert(errStr);
                 }
             }
         </script>
@@ -66,6 +72,9 @@
                 if (credit && clid) {
                     var finalStr = "UPDATE Client_Lives_in SET creditcardNum = " + credit + " WHERE CLID = " + clid; 
                     alert(finalStr); 
+                    } else {
+                        var errStr = "Update to credit card number failed";
+                        alert(errStr);
                     }
                 }
         </script>
@@ -83,6 +92,9 @@
                 if (address && clid) {
                     var finalStr = "UPDATE Client_Lives_in SET billingAddress = " + address + " WHERE CLID = " + clid; 
                     alert(finalStr); 
+                } else {
+                    var errStr = "Upate to billing address failed";
+                    alert(errStr);
                 }
                 }
         </script>
@@ -100,6 +112,9 @@
                 if (email && clid) {
                     var finalStr = "UPDATE Client_Lives_in SET email = " + email + " WHERE CLID = " + clid; 
                     alert(finalStr); 
+                } else {
+                    var errStr = "Update to email failed";
+                    alert(errStr);
                 }
                 }
         </script>
@@ -121,8 +136,13 @@
             document.getElementById('selectItemsPriceButton').onclick = function() {
                 var op = document.getElementById("operator").value;
                 var but = document.getElementById("retrievePrice").value;
+                if (op && but ) {
                     var finalStr = "SELECT * FROM Item WHERE price " + op + but;  
                     alert(finalStr); 
+                    } else {
+                        var errStr = "Selection failed";
+                        alert(errStr);
+                    }
                 }
         </script>
     </form>

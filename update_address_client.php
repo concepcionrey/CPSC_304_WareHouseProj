@@ -8,7 +8,7 @@
     // TODO check if right
     //echo($itemCategory);
     $finalStr = "UPDATE Client_Lives_in SET billingAddress = '{$updateAddress}' WHERE CLID = {$clientCLID}";
-    echo($finalStr);
+    //echo($finalStr);
     
     $stid = oci_parse($conn, $finalStr);
     $x = oci_execute($stid);
