@@ -72,12 +72,14 @@
 
     <form action="cancel_order_client.php", method="get">
         Order OD: <input type="text" name="cancelOrderID",  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="cancelOrderID">
+        Client CLID:<input type="text" name="CLIDCancel"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57' title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDCancel" readonly="readonly">
         <button type="add item" id="updateStockButton">Cancel Order</button> <br>
         <script type="text/javascript">
+            document.getElementById("CLIDCancel").value = document.cookie.split(";")[0];
             document.getElementById('updateStockButton').onclick = function() {
                 var od = document.getElementById("cancelOrderID").value;
                 if (od) {
-                    var finalStr = "DELETE FROM Order_Makes WHERE OD = "+ od; 
+                    var finalStr = "DELETE FROM Order_Makes WHERE OD = "+ od + " AND CLID =" + document.cookie.split(";")[0]; 
                     alert(finalStr); 
                 } else {
                     var errStr = "Cancellation failed";
