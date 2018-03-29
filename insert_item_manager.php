@@ -18,8 +18,7 @@
     $x = oci_execute($stid);
     header('Location: ManagerView.php');
     exit;
-    
-    
+
 //    function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
 //        //echo "<br>running ".$cmdstr."<br>";
 //        global $conn, $success;

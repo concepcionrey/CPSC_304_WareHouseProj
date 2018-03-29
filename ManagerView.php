@@ -11,7 +11,7 @@
 
 
 <div id = "queriesManager">
-    <form action="insert_item.php" method="get">
+    <form action="insert_item_manager.php" method="get">
         Item ID:<input type="text" name="IIDInsert" id="IIDInsert" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." >
         Item Category:<input type="text" name="itemCategoryInsert" id="itemCategoryInsert"  maxlength="40" title="Please enter the item category." placeholder="Enter the item category">
         Item name:<input type="text" name="nameInsert" id="nameInsert" maxlength="40" pattern="[A-Za-z]+" title="Please enter the item name." placeholder="Enter the item name." >
@@ -36,7 +36,7 @@
         </script>
     </form>
 
-    <form action="update_itemStock.php" method="get">
+    <form action="update_itemStock_manager.php" method="get">
         Item ID: <input type="text" name="IIDUpdateStock" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." id="IIDUpdateStock">
 
         Update stock by: <input type="text" name="stockUpdate" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57' title="Please enter numbers only." placeholder="Enter numbers only." id="stockUpdate">
@@ -53,9 +53,10 @@
         </script>
     </form>
 
-    <form action="update_itemPrice.php" method="get">
+
+    <form action="update_itemPrice_manager.php" method="get">
         Item ID: <input type="text" name="IIDUpdatePrice" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57' placeholder="Enter numbers only." title="Please enter numbers only." id="IIDUpdatePrice">
-        Set the new price: <input type="number"  step="0.01" onkeypress="if(this.value.length==1) return false;" min="0.01" max="999999999999999"  title="Please enter numbers only." placeholder="Enter numbers only." id="priceUpdate">
+        Set the new price: <input type="number" name="priceUpdate" step="0.01" onkeypress="if(this.value.length==15) return false;" min="0.01" max="999999999999999"  title="Please enter numbers only." placeholder="Enter numbers only." id="priceUpdate">
         <button type="add item" id="updatePriceButton">Update price of an Item</button> <br>
         <script type="text/javascript">
             document.getElementById('updatePriceButton').onclick = function() {
@@ -68,8 +69,14 @@
             }
         </script>
     </form>
+
+
+    <form action="delete_item_manager.php" method="get">
+        Item ID: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." name="deleteIID">
+        <button type="deleteItem" id="deleteItem">Delete Item</button> <br>
+    </form>
     
-    <form action="get_itemPriceGT.php" method="get">
+    <form action="get_itemPriceGT_manager.php" method="get">
         Items with price > <input  type="number" name="retrievePrice" step="0.01" onkeypress="if(this.value.length==15) return false;" min="0.01" max="999999999999999"  title="Please enter numbers only." placeholder="Enter numbers only." id="retrievePrice">
         <button type="add item" id="selectItemsPriceButton">Select Items</button> <br>
         <script type="text/javascript">
@@ -81,20 +88,23 @@
         </script>
     </form>
 
-    <form action="get_itemNotShipped.php" method="get">
+    <form action="get_itemNotShipped_manager.php" method="get">
         <button type="add item" id="notShippedItemsButton">Display not yet shipped orders</button> <br>
     </form>
 
-    <form action="delete_item" method="get">
-        Item ID: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." name="IIDDeleteItem">
-        <button type="add item" id="deleteItem">Delete Item</button> <br>
+    <form action="warehousesWithAllItems_manager.php" method="get">
+        <button type="deleteItem" id="deleteItem">Find Warehouses with all Items</button> <br>
     </form>
 
-    Join two tables, table 1: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter the first Table ID."  name="table1Join" placeholder="Enter the 1st Table ID">
-    table 2: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  name="table2Join" title="Please enter the second Table ID." placeholder="Enter the 2nd Table ID">
-    <button type="add item" id="joinTablesButton">Join Tables</button> <br>
+    <form action="findCategoryAvg_manager.php", method="post">
+        <select name="operator">
+            <option value="max"> Maximum</option>
+            <option value="min"> Minimum</option>
+        </select>
+        <button type="add item" id="selectItemsPriceButton">Average Category price</button> <br>
+    </form>
 
-    <form action="get_itemMaxPrice" method="get">
+    <form action="get_itemMaxPrice_manager" method="get">
         <button type="add item" id="selectMaxPrice">Select Items with the maximum price</button> <br>
     </form>
 </div>
