@@ -30,7 +30,7 @@
     
     function printItemResult($result) { //prints results from a select statement
         // echo "<br>Item Table:";
-        echo "<table>";
+        echo "<table align=center>";
         echo "<tr><th>ID</th><th>Name</th><th>Category</th><th>Supplier Code</th><th>Item Stock</th><th>Price</th></tr>";
 
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
