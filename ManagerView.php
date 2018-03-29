@@ -31,6 +31,9 @@
                 if (id && cat && name && price && supplyCode && stock){
                     var finStr =  "INSERT INTO Item (IID, category, name, price, supplierCode, itemStock) VALUES ("+ id + ", " + cat+ ", " + name+ ", " + price + ", "+ supplyCode+ ", " + stock + ")";
                     alert(finStr);
+                }  else {
+                    var errStr = "Insertion failed";
+                    alert(errStr);
                 }
             }
         </script>
@@ -48,6 +51,9 @@
                 if (id && stock){
                     var finStr =  "UPDATE Item SET itemStock =" +stock+  " WHERE IID = " + id;
                     alert(finStr);
+                } else {
+                    var errStr = "Update to item stock failed";
+                    alert(errStr);
                 }
             }
         </script>
@@ -65,6 +71,9 @@
                 if (id && price){
                     var finStr =  "UPDATE Item SET itemPrice =" +price+  " WHERE IID = " + id;
                     alert(finStr);
+                } else {
+                    var errStr = "Update to item price failed";
+                    alert(errStr);
                 }
             }
         </script>
@@ -80,6 +89,9 @@
                     if (id){
                         var finStr = "DELETE FROM Item WHERE IID =" + id;
                         alert(finStr);
+                    } else {
+                        var errStr = "Deletion failed";
+                        alert(errStr);
                     }
                 }
         </script>
@@ -100,22 +112,40 @@
             document.getElementById('selectItemsPriceButton').onclick = function() {
                 var op = document.getElementById("operator").value;
                 var but = document.getElementById("retrievePrice").value;
+                if (op && but) {
                 var finalStr = "SELECT * FROM Item WHERE price " + op + but;
                 alert(finalStr);
+                } else {
+                    var errStr = "Selection failed";
+                    alert(errStr);
+                }
+
             }
         </script>
     </form>
 
     <form action="join_itemsWarehouse.php" method="get">
         <button type="add item" id="notShippedItemsButton">Show items in each warehouse</button> <br>
+        <script type="text/javascript">
+            document.getElementById('notShippedItemsButton').onclick = function() {
+                        var finStr = "SELECT streetName, W.WID, IID FROM Warehouse_Located W, Stores S WHERE w.WID = S.WID";
+                        alert(finStr);
+                      }
+        </script>
     </form>
 
     <form action="warehousesWithAllItems_manager.php" method="get">
         <button type="deleteItem" id="deleteItem">Find Warehouses with all Items</button> <br>
+         <script type="text/javascript">
+            document.getElementById('deleteItem').onclick = function() {
+                        var finStr = "SELECT W.streetName, W.WID  FROM warehouse_Located W WHERE NOT EXISTS (SELECT I.IID FROM Item I WHERE NOT EXISTS (SELECT S.IID FROM STORES S WHERE S.IID = I.IID AND S.WID = W.WID))";
+                        alert(finStr);
+                      }
+        </script>
     </form>
 
     <form action="findCategoryAvg_manager.php", method="post">
-        <select name="operator">
+        <select name="operator" id="operator">
             <option value="max"> Maximum</option>
             <option value="min"> Minimum</option>
         </select>
