@@ -82,6 +82,7 @@
                         alert(finStr);
                     }
                 }
+        </script>
     </form>
     
     <form action="get_itemPrice_manager.php" method="post">
