@@ -46,7 +46,7 @@
 
     <form action="update_address_client.php", method="get">
         New address: <input type="text" name="addressUpdate" maxlength="40"  title="Please enter your address."  placeholder="Enter your address." id="addressUpdate">
-        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDupdate">
+        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDAddress">
         <button type="add item" id="updateAddress">Update Address</button> <br>
         <script>
             document.getElementById("CLIDAddress").value = document.cookie.split(";")[0];
@@ -55,7 +55,7 @@
     
     <form action="update_email_client.php", method="get">
         New email: <input type="text" name="emailUpdate" maxLength="40" title="Please enter your email address."  placeholder="Enter your email address." id="emailUpdate">
-        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDupdate">
+        Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDEmail">
         <button type="add item" id="updateEmail">Update Email</button> <br>
         <script>
             document.getElementById("CLIDEmail").value = document.cookie.split(";")[0];
