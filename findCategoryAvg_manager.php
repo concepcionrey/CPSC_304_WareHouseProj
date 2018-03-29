@@ -2,12 +2,12 @@
 <body>
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-$op = $_GET["operator"];
+$op = $_POST["operator"];
 
 $finalStr =
-    "select '{$op}'(x) from (select avg(price) as x from item group by category)";
+    "select $op(x) from (select avg(price) as x from item group by category)";
 
-echo($finalStr);
+echo("Returns " . $op . " of all category averages");
 
 
 $result = executePlainSQL($finalStr);
@@ -40,7 +40,7 @@ function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL com
 
 function printItemResult($result) { //prints results from a select statement
     echo "<table>";
-    echo "<tr><th>Min/Max Avg Price</th><th>";
+    echo "<tr><th> Avg Price</th><th>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr><td>" . $row[0] .

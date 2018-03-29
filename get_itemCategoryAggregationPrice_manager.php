@@ -2,10 +2,10 @@
 <body>
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-$op = $_GET["operator"];
+$op = $_POST["operator"];
 
 $finalStr =
-    "SELECT category, '{$op}'(price)
+    "SELECT category, $op(price)
      FROM item GROUP BY category";
 
 
