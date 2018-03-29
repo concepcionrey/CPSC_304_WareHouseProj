@@ -128,7 +128,7 @@
             <option value="min"> Minimum</option>
             <option value="avg"> Average</option>
         </select>
-        <button type="add item" id="selectItemsPriceButton">Average Category price</button> <br>
+        <button type="add item" id="selectItemsPriceButton">Price in Catagory</button> <br>
     </form>
 
 </div>

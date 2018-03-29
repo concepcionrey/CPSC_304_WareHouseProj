@@ -38,15 +38,12 @@ function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL com
 
 function printItemResult($result) { //prints results from a select statement
     echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th><th>Category</th><th>Supplier Code</th><th>Item Stock</th><th>Price</th></tr>";
+    echo "<tr><th>Street Name</th><th>WarehouseID</th><th>ItemID</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["IID"] .
-            "</td><td>" . $row["NAME"] .
-            "</td><td>" . $row["CATEGORY"] .
-            "</td><td>" . $row["SUPPLIERCODE"] .
-            "</td><td>" . $row["ITEMSTOCK"] .
-            "</td><td>" . $row["PRICE"] .
+        echo "<tr><td>" . $row[0] .
+            "</td><td>" . $row[1] .
+            "</td><td>" . $row[2] .
             "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
