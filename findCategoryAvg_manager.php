@@ -2,9 +2,10 @@
 <body>
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$op = $_GET["operator"];
 
 $finalStr =
-    "select max(x) from (select avg(price) as x from item group by category)";
+    "select '{$op}'(x) from (select avg(price) as x from item group by category)";
 
 echo($finalStr);
 

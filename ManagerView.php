@@ -73,23 +73,40 @@
 
     <form action="delete_item_manager.php" method="get">
         Item ID: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." name="deleteIID">
-        <button type="deleteItem" id="deleteItem">Delete Item</button> <br>
+        <button type="deleteItemButton" id="deleteItemButton">Delete Item</button> <br>
+        <script type="text/javascript">
+            document.getElementById('deleteItemButton').onclick = function() {
+                    var id = document.getElementById("IIDUpdatePrice").value;
+                    if (id){
+                        var finStr = "DELETE FROM Item WHERE IID =" + id;
+                        alert(finStr);
+                    }
+                }
     </form>
     
-    <form action="get_itemPriceGT_manager.php" method="get">
-        Items with price > <input  type="number" name="retrievePrice" step="0.01" onkeypress="if(this.value.length==15) return false;" min="0.01" max="999999999999999"  title="Please enter numbers only." placeholder="Enter numbers only." id="retrievePrice">
-        <button type="add item" id="selectItemsPriceButton">Select Items</button> <br>
-        <script type="text/javascript">
+    <form action="get_itemPrice_manager.php" method="post">
+                Items with price
+            <select name="operator" id="operator">
+                <option value=">">&gt;</option>
+                <option value="<">&lt;</option>
+                <option value="=">=</option>
+                <option value=">=">&ge;</option>
+            <option value="<=">&le;</option>
+            </select>
+            <input type="number" step="0.01" onkeypress="if(this.value.length==15) return false;" min="0.01" max="999999999999999"  title="Please enter numbers only." placeholder="Enter numbers only."  name="retrievePrice" id="retrievePrice">
+                <button type="add item" id="selectItemsPriceButton">Select Items</button> <br>
+            <script type="text/javascript">
             document.getElementById('selectItemsPriceButton').onclick = function() {
-                var price = document.getElementById("retrievePrice").value;
-                var finStr =  "SELECT * FROM Item WHERE price > " + price;
-                alert(finStr);
+                var op = document.getElementById("operator").value;
+                var but = document.getElementById("retrievePrice").value;
+                var finalStr = "SELECT * FROM Item WHERE price " + op + but;
+                alert(finalStr);
             }
         </script>
     </form>
 
-    <form action="get_itemNotShipped_manager.php" method="get">
-        <button type="add item" id="notShippedItemsButton">Display not yet shipped orders</button> <br>
+    <form action="join_itemsWarehouse.php" method="get">
+        <button type="add item" id="notShippedItemsButton">Show items in each warehouse</button> <br>
     </form>
 
     <form action="warehousesWithAllItems_manager.php" method="get">
@@ -104,7 +121,13 @@
         <button type="add item" id="selectItemsPriceButton">Average Category price</button> <br>
     </form>
 
-    <form action="get_itemMaxPrice_manager" method="get">
-        <button type="add item" id="selectMaxPrice">Select Items with the maximum price</button> <br>
+    <form action="get_itemCategoryAggregationPrice_manager.php", method="post">
+        <select name="operator">
+            <option value="max"> Maximum</option>
+            <option value="min"> Minimum</option>
+            <option value="avg"> Average</option>
+        </select>
+        <button type="add item" id="selectItemsPriceButton">Average Category price</button> <br>
     </form>
+
 </div>

@@ -2,19 +2,16 @@
 <body>
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$updateAddress = $_POST["retrievePrice"];
+$myValue = $_POST["operator"];
 
-$finalStr =
-    "SELECT W.streetName, W.WID
-    FROM warehouse_Located W
-    WHERE NOT EXISTS (SELECT I.IID
-    FROM Item I
-    WHERE NOT EXISTS (SELECT S.IID
-    FROM STORES S
-    WHERE S.IID = I.IID
-    AND S.WID = W.WID))";
+$finalStr = "SELECT * FROM Item WHERE price $myValue $updateAddress";
+
+$stid = oci_parse($conn, $finalStr);
+$x = oci_execute($stid);
 
 $result = executePlainSQL($finalStr);
-printItemResult($result);
+printContains($result);
 
 function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL command and executes it
     //echo "<br>running ".$cmdstr."<br>";
@@ -41,7 +38,8 @@ function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL com
     return $statement;
 }
 
-function printItemResult($result) { //prints results from a select statement
+function printContains($result) { //prints results from a select statement
+    // echo "<br>Item Table:";
     echo "<table>";
     echo "<tr><th>ID</th><th>Name</th><th>Category</th><th>Supplier Code</th><th>Item Stock</th><th>Price</th></tr>";
 
@@ -55,11 +53,8 @@ function printItemResult($result) { //prints results from a select statement
             "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";
-
 }
-
 ?>
-<script type="text/javascript">
-</script>
+
 </body>
 </html>

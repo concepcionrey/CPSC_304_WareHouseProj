@@ -2,16 +2,12 @@
 <body>
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$op = $_GET["operator"];
 
 $finalStr =
-    "SELECT W.streetName, W.WID
-    FROM warehouse_Located W
-    WHERE NOT EXISTS (SELECT I.IID
-    FROM Item I
-    WHERE NOT EXISTS (SELECT S.IID
-    FROM STORES S
-    WHERE S.IID = I.IID
-    AND S.WID = W.WID))";
+    "SELECT category, '{$op}'(price)
+     FROM item GROUP BY category";
+
 
 $result = executePlainSQL($finalStr);
 printItemResult($result);
