@@ -98,11 +98,11 @@
 
 
     <form action="delete_item_manager.php" method="get">
-        Item ID: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." name="deleteIID">
+        Item ID: <input type="text" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." name="deleteIID" id="deleteIID">
         <button type="deleteItemButton" id="deleteItemButton">Delete Item</button> <br>
         <script type="text/javascript">
             document.getElementById('deleteItemButton').onclick = function() {
-                    var id = document.getElementById("IIDUpdatePrice").value;
+                    var id = document.getElementById("deleteIID").value;
                     if (id){
                         var finStr = "DELETE FROM Item WHERE IID =" + id;
                         alert(finStr);
