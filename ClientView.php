@@ -7,6 +7,7 @@
     if (performance.navigation.type != 1 && performance.navigation.type != 2) {
         while(true){
             var id = prompt("Please Enter Your Client ID");
+
             if (id == "10000000" || id == "20000000"|| id == "30000000"|| id == "40000000"|| id == "50000000"){
                 document.cookie = id; 
                 if (id != null) {

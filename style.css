@@ -8,6 +8,13 @@
     height: 40px;
     margin-top: 25%;
 }
+#repopulate{
+/*    position: absolute;*/
+    top: 10%;
+    right: 80%;
+/*    transform: translate(-50%, -50%);*/
+    text-align: center;
+}
 #container{
     position: absolute;
     top: 40%;
