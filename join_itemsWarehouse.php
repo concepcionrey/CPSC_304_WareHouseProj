@@ -3,9 +3,9 @@
 <?php
 $conn = OCILogon("ora_r2e0b", "a55344148", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
-$finalStr = "SELECT streetName, W.WID, IID
-              FROM Warehouse_Located W, Stores S
-              WHERE w.WID = S.WID";
+$finalStr = "SELECT streetName, W.WID, I.name, I.IID, I.category, I.price, I.itemStock 
+              FROM Warehouse_Located W, Stores S, Item I
+              WHERE w.WID = S.WID AND S.IID = I.IID";
 
 
 $result = executePlainSQL($finalStr);
@@ -38,12 +38,16 @@ function executePlainSQL($cmdstr) { //takes a plain (no bound variables) SQL com
 
 function printItemResult($result) { //prints results from a select statement
     echo "<table>";
-    echo "<tr><th>Street Name</th><th>WarehouseID</th><th>ItemID</th></tr>";
+    echo "<tr><th>Street Name</th><th>WarehouseID</th><th>Item Name</th><th>ItemID</th><th>Category</th><th>Item Price</th><th>Item Stock</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr><td>" . $row[0] .
             "</td><td>" . $row[1] .
             "</td><td>" . $row[2] .
+            "</td><td>" . $row[3] .
+            "</td><td>" . $row[4] .
+            "</td><td>" . $row[5] .
+            "</td><td>" . $row[6] .
             "</td></tr>"; //or just use "echo $row[0]"
     }
     echo "</table>";

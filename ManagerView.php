@@ -39,6 +39,23 @@
         </script>
     </form>
 
+    <form action="insert_stores.php" method="get">
+        Item ID:<input type="text" name="IIDInsert" id="IIDInsert" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." >
+        Warehouse ID:<input type="text" name="WIDInsert" id="WIDInsert"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." >
+        <button type="add item" id="addItemButton">Add Item to a Warehouse</button> <br>
+
+        <script type="text/javascript">
+            document.getElementById('addItemButton').onclick = function() {
+                var id = document.getElementById("IIDInsert").value;
+                var wid = document.getElementById("WIDInsert").value;
+                if (id && wid){
+                    var finStr =  "INSERT INTO STORES (IID, WID) VALUES ("+ id + ", "+wid + ")";
+                    alert(finStr);
+                }
+            }
+        </script>
+    </form>
+
     <form action="update_itemStock_manager.php" method="get">
         Item ID: <input type="text" name="IIDUpdateStock" maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'  title="Please enter numbers only." placeholder="Enter numbers only." id="IIDUpdateStock">
 
