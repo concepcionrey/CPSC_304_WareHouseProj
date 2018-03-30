@@ -131,7 +131,7 @@
     </form>
     
     <form action="update_email_client.php", method="get">
-        New email: <input type="text" name="emailUpdate" maxLength="40" title="Please enter your email address."  placeholder="Enter your email address." id="emailUpdate">
+        New email: <input type="email" name="emailUpdate" maxLength="40" title="Please enter your email address."  placeholder="Enter your email address." id="emailUpdate">
         Client CLID:<input type="text" name="CLIDupdate"  maxlength="15" onkeypress='return event.charCode >=48 && event.charCode<=57'   title="Please enter numbers only."  placeholder="Enter numbers only." id="CLIDEmail" readonly="readonly">
         <button type="add item" id="updateEmail">Update Email</button> <br>
         <script type="text/javascript">
