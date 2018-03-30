@@ -18,7 +18,7 @@
         billingAddress varchar(255) not null,
         Name varchar(255) null,
         creditCardNum varchar(255) null,
-        Email varChar(255) null,
+        Email varChar(255) null CONSTRAINT check_Email CHECK (Email LIKE '%@%') ,
         cellnum varchar(255) null,
         Primary key (CLID),
         Foreign key (CID) references City ON DELETE CASCADE);
